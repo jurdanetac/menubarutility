@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1315F7632F6334BD00F5391C /* MenuBarUtilityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315F7622F6334BD00F5391C /* MenuBarUtilityApp.swift */; };
-		1315F7652F6334BD00F5391C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315F7642F6334BD00F5391C /* ContentView.swift */; };
 		1315F7672F6334D700F5391C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1315F7662F6334D700F5391C /* Assets.xcassets */; };
 		1315F76A2F6334D700F5391C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1315F7692F6334D700F5391C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +15,6 @@
 /* Begin PBXFileReference section */
 		1315F75F2F6334BD00F5391C /* MenuBarUtility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarUtility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1315F7622F6334BD00F5391C /* MenuBarUtilityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarUtilityApp.swift; sourceTree = "<group>"; };
-		1315F7642F6334BD00F5391C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1315F7662F6334D700F5391C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1315F7692F6334D700F5391C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1315F76B2F6334D700F5391C /* MenuBarUtility.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBarUtility.entitlements; sourceTree = "<group>"; };
@@ -53,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				1315F7622F6334BD00F5391C /* MenuBarUtilityApp.swift */,
-				1315F7642F6334BD00F5391C /* ContentView.swift */,
 				1315F7662F6334D700F5391C /* Assets.xcassets */,
 				1315F76B2F6334D700F5391C /* MenuBarUtility.entitlements */,
 				1315F7682F6334D700F5391C /* Preview Content */,
@@ -139,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1315F7652F6334BD00F5391C /* ContentView.swift in Sources */,
 				1315F7632F6334BD00F5391C /* MenuBarUtilityApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
