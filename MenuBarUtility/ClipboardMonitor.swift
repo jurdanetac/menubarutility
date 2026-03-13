@@ -1,43 +1,35 @@
+//
+//  ClipboardMonitor.swift
+//  MenuBarUtility
+//
+//  Created by Top Of The Line VA on 3/12/26.
+//
+
 import AppKit
 
 class ClipboardMonitor: NSObject {
-    var lastChangeCount = 0
+    let pasteboard = NSPasteboard.general
+    var lastChangeCount: Int = 0
     var timer: Timer?
 
-    override init() {
-        super.init()
-        setupClipboardMonitoring()
+    func startMonitoring() {
+        // Check for changes every 0.5 seconds
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(checkForChange), userInfo: nil, repeats: true)
     }
 
-    func setupClipboardMonitoring() {
-        let pasteboard = NSPasteboard.general
-        lastChangeCount = pasteboard.changeCount // Initialize the change count
-
-        // Set up a timer to check the pasteboard every second
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            self?.checkForClipboardChanges()
-        }
-    }
-
-    @objc private func checkForClipboardChanges() {
-        let pasteboard = NSPasteboard.general
-        if pasteboard.changeCount != lastChangeCount {
-            // The clipboard content has changed
-            print("Clipboard changed!")
-            self.lastChangeCount = pasteboard.changeCount
-            
-            // You can now access the new content
-            if let newString = pasteboard.string(forType: .string) {
-                print("New string is: \(newString)")
-            }
-            
-            // Perform other actions here (e.g., update UI, process data)
-        }
-    }
-    
     func stopMonitoring() {
         timer?.invalidate()
         timer = nil
     }
-}
 
+    @objc private func checkForChange() {
+        let currentChangeCount = pasteboard.changeCount
+        if currentChangeCount != lastChangeCount {
+            lastChangeCount = currentChangeCount
+            // Post a custom notification that a change occurred
+            NotificationCenter.default.post(name: NSNotification.Name("PasteboardChangedNotification"), object: nil)
+            print("Clipboard changed!")
+            // You can also get the new content here, e.g., pasteboard.string(forType: .string)
+        }
+    }
+}

@@ -35,6 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         setupMenu()
+        
+        // monitor
+        let clipboardMonitor = ClipboardMonitor()
+        clipboardMonitor.startMonitoring()
+        print("Clipboard monitor setup")
     }
 
     func setupMenu() {

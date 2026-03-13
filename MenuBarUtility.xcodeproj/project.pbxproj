@@ -10,6 +10,7 @@
 		1315F7632F6334BD00F5391C /* MenuBarUtilityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315F7622F6334BD00F5391C /* MenuBarUtilityApp.swift */; };
 		1315F7672F6334D700F5391C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1315F7662F6334D700F5391C /* Assets.xcassets */; };
 		1315F76A2F6334D700F5391C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1315F7692F6334D700F5391C /* Preview Assets.xcassets */; };
+		137003D52F64C9130004259F /* ClipboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137003D42F64C9130004259F /* ClipboardMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		1315F7662F6334D700F5391C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1315F7692F6334D700F5391C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1315F76B2F6334D700F5391C /* MenuBarUtility.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBarUtility.entitlements; sourceTree = "<group>"; };
+		137003D42F64C9130004259F /* ClipboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				1315F7622F6334BD00F5391C /* MenuBarUtilityApp.swift */,
+				137003D42F64C9130004259F /* ClipboardMonitor.swift */,
 				1315F7662F6334D700F5391C /* Assets.xcassets */,
 				1315F76B2F6334D700F5391C /* MenuBarUtility.entitlements */,
 				1315F7682F6334D700F5391C /* Preview Content */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1315F7632F6334BD00F5391C /* MenuBarUtilityApp.swift in Sources */,
+				137003D52F64C9130004259F /* ClipboardMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
