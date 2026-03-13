@@ -16,7 +16,7 @@ struct MenuBarUtilityApp: App {
     var body: some Scene {
         // You can leave this empty or hide it if you want a menu-bar-only app
         Settings {
-            Text("Settings View")
+            // Text("Settings View")
         }
     }
 }
@@ -34,15 +34,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(toggleMenu)
         }
         
-        setupMenu()
-        
+        // setupMenu()
+        setupClipboardMonitor()
+    }
+    
+    private func setupClipboardMonitor() {
         // monitor
         let clipboardMonitor = ClipboardMonitor()
         clipboardMonitor.startMonitoring()
         print("Clipboard monitor setup")
     }
 
-    func setupMenu() {
+    private func setupMenu() {
         let menu = NSMenu()
         
         menu.addItem(NSMenuItem(title: "Hello World", action: #selector(doSomething), keyEquivalent: "h"))
