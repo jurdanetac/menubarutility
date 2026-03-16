@@ -23,61 +23,55 @@ struct MenuBarUtilityApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
-    
     var observer: NSObjectProtocol?
     
+    // IMPORTANT: Reference must be stored here, otherwise the timer dies immediately
+    var clipboardMonitor: ClipboardMonitor?
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // Create the status item in the menu bar
+        // variableLength allows the menu bar to expand/shrink based on the text size
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let button = statusItem?.button {
-            // Use an SF Symbol or a custom image
-            // button.image = NSImage(systemSymbolName: "star.fill", accessibilityDescription: "App Icon")
-            button.title = "hello tolva"
-            button.action = #selector(toggleMenu)
+            button.title = "Ready"
         }
         
-        // setupMenu()
+        setupMenu()
         setupListener()
         setupClipboardMonitor()
     }
     
     private func setupClipboardMonitor() {
-        // monitor
-        let clipboardMonitor = ClipboardMonitor()
-        clipboardMonitor.startMonitoring()
-        print("Clipboard monitor setup")
+        self.clipboardMonitor = ClipboardMonitor()
+        self.clipboardMonitor?.startMonitoring()
     }
     
     func setupListener() {
         observer = NotificationCenter.default.addObserver(
             forName: NSNotification.Name("PasteboardChangedNotification"),
             object: nil,
-            queue: .main // Ensures the code runs on the main thread
-        ) { notification in
-            // Your logic goes here 1,000
-            if let content = notification.userInfo?["basePlusTwentyPercent"]! {
-                print("The new text is: \(content)")
+            queue: .main
+        ) { [weak self] notification in
+            // Safely check for the data
+            if let data = notification.userInfo,
+               let base = data["base"] as? String,
+               let basePlusTwentyPercent = data["basePlusTwentyPercent"] as? String {
+                // Update the button title in the menu bar
+                self?.statusItem?.button?.title = "\(base) -> \(basePlusTwentyPercent)"
             }
         }
     }
     
     private func setupMenu() {
         let menu = NSMenu()
-        
-        menu.addItem(NSMenuItem(title: "Hello World", action: #selector(doSomething), keyEquivalent: "h"))
+        menu.addItem(NSMenuItem(title: "Copy Result", action: #selector(copyResultToClipboard), keyEquivalent: "c"))
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
         statusItem?.menu = menu
     }
     
-    @objc func doSomething() {
-        print("Menu item clicked!")
-    }
-    
-    @objc func toggleMenu() {
-        // This is where you would trigger a Popover or Menu
+    @objc func copyResultToClipboard() {
+        // Logic to copy the current 20% value back to clipboard if desired
     }
 }
-

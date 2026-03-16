@@ -20,6 +20,7 @@
 		1315F7692F6334D700F5391C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1315F76B2F6334D700F5391C /* MenuBarUtility.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenuBarUtility.entitlements; sourceTree = "<group>"; };
 		137003D42F64C9130004259F /* ClipboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardMonitor.swift; sourceTree = "<group>"; };
+		13AAD6E22F68B38F0044420A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +53,7 @@
 		1315F7612F6334BD00F5391C /* MenuBarUtility */ = {
 			isa = PBXGroup;
 			children = (
+				13AAD6E22F68B38F0044420A /* Info.plist */,
 				1315F7622F6334BD00F5391C /* MenuBarUtilityApp.swift */,
 				137003D42F64C9130004259F /* ClipboardMonitor.swift */,
 				1315F7662F6334D700F5391C /* Assets.xcassets */,
@@ -272,6 +274,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MenuBarUtility/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MenuBarUtility/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -297,6 +300,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MenuBarUtility/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MenuBarUtility/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
