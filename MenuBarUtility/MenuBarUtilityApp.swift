@@ -23,18 +23,22 @@ struct MenuBarUtilityApp: App {
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
-
+    
+    var observer: NSObjectProtocol?
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Create the status item in the menu bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let button = statusItem?.button {
             // Use an SF Symbol or a custom image
-            button.image = NSImage(systemSymbolName: "star.fill", accessibilityDescription: "App Icon")
+            // button.image = NSImage(systemSymbolName: "star.fill", accessibilityDescription: "App Icon")
+            button.title = "hello tolva"
             button.action = #selector(toggleMenu)
         }
         
         // setupMenu()
+        setupListener()
         setupClipboardMonitor()
     }
     
@@ -44,7 +48,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         clipboardMonitor.startMonitoring()
         print("Clipboard monitor setup")
     }
-
+    
+    func setupListener() {
+        observer = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("PasteboardChangedNotification"),
+            object: nil,
+            queue: .main // Ensures the code runs on the main thread
+        ) { notification in
+            // Your logic goes here 1,000
+            if let content = notification.userInfo?["basePlusTwentyPercent"]! {
+                print("The new text is: \(content)")
+            }
+        }
+    }
+    
     private func setupMenu() {
         let menu = NSMenu()
         
@@ -54,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusItem?.menu = menu
     }
-
+    
     @objc func doSomething() {
         print("Menu item clicked!")
     }
@@ -63,3 +80,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // This is where you would trigger a Popover or Menu
     }
 }
+
